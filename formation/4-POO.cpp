@@ -15,8 +15,47 @@
     //Public = les attributs et méthodes sont accessibles depuis l'extérieur de la classe
     //Protected = les attributs et méthodes sont accessibles dans la classe et dans les classes dérivées (héritage).
 
-int main(){
 
+
+class Television{
+    private:
+        //attributs
+        int volume;
+        int canal;
+        std::string marque;
+
+
+    public:
+        //constructeur par défaut, même nom que la classe, pas de type de retour, pas de void, pas de return
+        Television();
+
+        bool allumée;;
+
+
+        //méthodes pour manipuler les attributs
+        void setVolume(int v);
+        int getVolume();
+        void setCanal(int c);
+        int getCanal();
+};
+
+
+//on définit le constructeur en dehors de la classe, avec le nom de la classe suivi de :: et du nom du constructeur
+Television::Television(){
+    volume = 0;
+    canal = 0;
+    marque = "Samsung";
+    allumée = false;
+}
+
+
+
+int main(){
+    Television tv1; //constructeur par défaut appelé automatiquement
+    std::cout << tv1.allumée; //renvoit false, car initialisée par le constructeur par défaut
+
+
+    tv1.allumée = true; //objet.attribut = XXX , permet de modifier l'attribut d'un objet 
 
     return 0;
 }
