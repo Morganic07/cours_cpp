@@ -11,5 +11,7 @@ int main(){
     //attention, tjr mettre le "f" apres un nombre flottant, 
     //sinn le compilateur interprete la variable comme un double
 
+
+    float nbFlottant = 10.0f+1.2f;
     return 0;
 }
