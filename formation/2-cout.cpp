@@ -2,16 +2,13 @@
 
 int main(){
 
-    //types de variables : 
-    //char : "e"
-    //int : -8
-    //float : 2.3f
-    //double : 2.3
-
-    //attention, tjr mettre le "f" apres un nombre flottant, 
-    //sinn le compilateur interprete la variable comme un double
-
-
     float nbFlottant = 10.0f+1.2f;
+
+
+    //std signifie qu'on prend la fonction
+    //cout qui est dans la biblio "std", ca permet 
+    //d'éviter le conflit entre les noms de fonctions, qui peuvent être les mm dans
+    //différentes bibliotheques 
+    std::cout << ""<< std::endl;
     return 0;
 }
