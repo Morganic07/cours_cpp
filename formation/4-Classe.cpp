@@ -27,9 +27,9 @@ class Television{
 
         //méthodes pour manipuler les attributs
         void setVolume(int v);
-        int getVolume();
+        void getVolume();
         void setCanal(int c);
-        int getCanal();
+        void getCanal();
 };
 
 
