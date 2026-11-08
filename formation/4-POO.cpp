@@ -8,6 +8,13 @@
 
 
 //un constructeur est une méthode spéciale qui est appelée lors de la création d'un objet, pour initialiser ses attributs avec des valeurs par défaut.
+
+
+//encapsulation : 
+    //Private = les attributs et méthodes sont accessibles uniquement dans la classe
+    //Public = les attributs et méthodes sont accessibles depuis l'extérieur de la classe
+    //Protected = les attributs et méthodes sont accessibles dans la classe et dans les classes dérivées (héritage).
+
 int main(){
 
 
