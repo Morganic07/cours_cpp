@@ -1,0 +1,15 @@
+#include <iostream>
+
+//POO = programmation orientée objet (ou OOp en anglais)
+//POO = Définir des classes qui permettent de créer des objets, qui sont des instances de ces classes.
+
+
+//une classe contient des attributs (variables) et des méthodes (fonctions) qui permettent de manipuler ces attributs.
+
+
+//un constructeur est une méthode spéciale qui est appelée lors de la création d'un objet, pour initialiser ses attributs avec des valeurs par défaut.
+int main(){
+
+
+    return 0;
+}
