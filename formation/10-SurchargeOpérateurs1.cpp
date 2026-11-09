@@ -3,7 +3,10 @@
 //la surchage d'opérateurs = apprendre à son objet à réagir aux opérateurs comme : 
 //(+, -, *, /) ou (==, !=, <, >, <=, >=) ou (&&, ||, !).
 
+
+
 // Concretement : pour int somme = a + b;, le compilateur comprend tout seul comment additionner deux entiers.
+
 //Mais si y a une classe Point avec des coordonnées x et Y, le compilateur ne sait pas ce que veut dire additionner ou inverser deux Point.   
 
 
