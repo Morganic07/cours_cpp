@@ -1,6 +1,6 @@
 #include <iostream>
 
-//la surchage d'opérateurs = apprendre à son objet à réagir aux opérateurs comme : 
+//la surchage d'opérateurs = operator overload = apprendre à son objet à réagir aux opérateurs comme : 
 //(+, -, *, /) ou (==, !=, <, >, <=, >=) ou (&&, ||, !).
 
 
