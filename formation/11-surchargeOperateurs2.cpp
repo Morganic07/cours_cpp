@@ -31,7 +31,7 @@ class Point{
 };
 
 Point Point::operator+(Point autrePoint){
-    return(Point(x + autrePoint.getX(), y + autrePoint.getY()));
+    return(Point(x + autrePoint.x, y + autrePoint.y));
 };
 
 int main(){
@@ -40,7 +40,7 @@ int main(){
     Point p3 = p1+p2; //on utilise l'opérateur+ pour additionner les coordonnées de p1 et p2
 
 
-    std::cout << p3.getX() << p3.getY();
+    std::cout << p3.getX() << p3.getY() << std::endl;
 
 
     return 0;
