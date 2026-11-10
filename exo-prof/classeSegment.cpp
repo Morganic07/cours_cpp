@@ -1,34 +1,28 @@
 #include <iostream>
 #include <cmath> 
 
+// --- CLASSE POINT ---
+class Point {
+private: 
+    int x;
+    int y; 
 
-class Point{
-    private : 
-        int x;
-        int y; 
-
-    public : 
-        //trois constructeurs 
-        Point();
-        Point(int a, int b);
-        Point(const Point& autrePoint);    
-        
-        //get et set
-        void set(int user_x, int user_y){x = user_x; y = user_y;}
-        int getX(){return x;}
-        int getY(){return y;}
-        
-        //operateur d'affichage 
-        friend std::ostream& operator<<(std::ostream& os, const Point& p){
-            os << p.x << "," << p.y ; return os;}
-
-        //distance origine
-        float distance_origine(){
-            return std::sqrt(x*x + y*y);
-        }
-
+public: 
+    // Trois constructeurs 
+    Point();
+    Point(int a, int b);
+    Point(const Point& autrePoint);    
+    
+    // Get et set
+    void set(int user_x, int user_y) { x = user_x; y = user_y; }
+    int getX() const { return x; }
+    int getY() const { return y; }
+    
+    // Fonction d'affichage simple (demandée par le prof)
+    void affiche(){
+        std::cout << "(" << x << ", " << y << ")";
+    }
 };
-
 
 //constructeur par défaut 
 Point::Point(){
@@ -49,28 +43,91 @@ Point::Point(const Point& autrePoint){
 }
 
 
+//_________________________________________________________
+//_________________________________________________________
+//_________________________________________________________
 
-int main(){
-    //test des 3 constructeurs 
 
+
+
+class Segment {
+private:
+    Point A;
+    Point B;
+    float longueur;
+
+public:
+    // constructeurs pour Segment
+    Segment();
+    Segment(Point p1, Point p2);
+    Segment(const Segment& autreSegment);
+
+    float calculerLongueur();
+
+
+    void setLongueur(float l) { 
+        longueur = l; 
+    }
+
+    Point getA() const { return A; }
+    Point getB() const { return B; }
+    float getLongueur() const { return longueur; }
+};
+
+//constructeur par défaut 
+Segment::Segment(){A.set(0,0); B.set(0,0); longueur = 1;}
+
+//constructeur parametres 
+Segment::Segment(Point a, Point b){
+    A.set(a.getX(), a.getY());
+    B.set(b.getX(), b.getY());
+    longueur = calculerLongueur();
+}
+
+//constructeur copie 
+Segment::Segment(const Segment& autreSegment){
+    A = autreSegment.A;
+    B = autreSegment.B;
+    longueur = autreSegment.longueur;
+}
+
+
+
+void Segment::calculerLongueur(){
+        int dx = B.getX() - A.getX();
+        int dy = B.getY() - A.getY();
+        longueur = std::sqrt(dx * dx + dy * dy);
+    }
+
+
+// --- FONCTION MAIN POUR TESTER ---
+int main() {
+    // Test des points avec la méthode affiche()
     Point p1;
-    std::cout << p1 << std::endl;
+    p1.affiche();
+    std::cout << std::endl;
 
-    Point p2(1,2);
-    std::cout << p2 << std::endl;
+    Point p2(3, 4);
+    p2.affiche();
+    std::cout << " | Distance origine : " << p2.distance_origine() << std::endl;
 
-    Point p3(p2);
-    std::cout << p3 << std::endl;
+    // Test des segments avec la méthode affiche()
+    Segment s1; // Par défaut
+    s1.affiche();
+    std::cout << std::endl;
 
+    Segment s2(Point(0, 0), Point(3, 4)); // Par paramètres
+    s2.affiche();
+    std::cout << std::endl;
 
-    //test de set et get 
-    p3.set(2,2);
-    std::cout << p3.getX() << "," << p3.getY() << std::endl;
+    Segment s3(s2); // Par copie
+    s3.affiche();
+    std::cout << std::endl;
 
-
-    //test distance_origine 
-    std::cout << p3.distance_origine() << std::endl;
-
+    // Test de modification
+    s3.setA(Point(1, 1));
+    s3.affiche();
+    std::cout << std::endl;
 
     return 0;
 }
