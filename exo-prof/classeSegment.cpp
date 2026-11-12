@@ -19,7 +19,7 @@ public:
     int getY() const { return y; }
     
     // Fonction d'affichage simple (demandée par le prof)
-    void affiche(){
+    void affichePoint(){
         std::cout << "(" << x << ", " << y << ")";
     }
 };
@@ -62,20 +62,25 @@ public:
     Segment(Point p1, Point p2);
     Segment(const Segment& autreSegment);
 
-    float calculerLongueur();
+    //fonction get et set 
+    Point getA(){ return A; }
+    Point getB(){ return B; }
+    float getLongueur(){ return calculerLongueur(); }
 
-
-    void setLongueur(float l) { 
-        longueur = l; 
+    //fonction affichage 
+    void afficheSegment(){
+        A.affichePoint();
+        B.affichePoint();
+        std::cout << " | " << calculerLongueur() << std::endl;
     }
 
-    Point getA() const { return A; }
-    Point getB() const { return B; }
-    float getLongueur() const { return longueur; }
+    //calculer la longueur d'un segment
+    float calculerLongueur();
+
 };
 
 //constructeur par défaut 
-Segment::Segment(){A.set(0,0); B.set(0,0); longueur = 1;}
+Segment::Segment(){A.set(0,0); B.set(0,0); longueur = calculerLongueur();}
 
 //constructeur parametres 
 Segment::Segment(Point a, Point b){
@@ -93,41 +98,45 @@ Segment::Segment(const Segment& autreSegment){
 
 
 
-void Segment::calculerLongueur(){
+float Segment::calculerLongueur(){
         int dx = B.getX() - A.getX();
         int dy = B.getY() - A.getY();
         longueur = std::sqrt(dx * dx + dy * dy);
+        return longueur;
     }
 
 
-// --- FONCTION MAIN POUR TESTER ---
+
+
+//_________________________________________________________
+//_________________________________________________________
+//_________________________________________________________
+
+
+
 int main() {
-    // Test des points avec la méthode affiche()
-    Point p1;
-    p1.affiche();
+    Point origine;
+    Point point1(3, 4);
+    Point point2(6, 8);
+
+    std::cout << "Points : ";
+    origine.affichePoint();
+    std::cout << " et ";
+    point1.affichePoint();
     std::cout << std::endl;
 
-    Point p2(3, 4);
-    p2.affiche();
-    std::cout << " | Distance origine : " << p2.distance_origine() << std::endl;
+    Segment segmentDefaut;
+    Segment segment(point1, point2);
 
-    // Test des segments avec la méthode affiche()
-    Segment s1; // Par défaut
-    s1.affiche();
-    std::cout << std::endl;
+    std::cout << "Segment par défaut : ";
+    segmentDefaut.afficheSegment();
+    std::cout << "Segment entre ";
+    segment.afficheSegment();
+    std::cout << "Longueur : " << segment.getLongueur() << std::endl;
 
-    Segment s2(Point(0, 0), Point(3, 4)); // Par paramètres
-    s2.affiche();
-    std::cout << std::endl;
-
-    Segment s3(s2); // Par copie
-    s3.affiche();
-    std::cout << std::endl;
-
-    // Test de modification
-    s3.setA(Point(1, 1));
-    s3.affiche();
-    std::cout << std::endl;
+    Segment copie(segment);
+    std::cout << "Copie du segment : ";
+    copie.afficheSegment();
 
     return 0;
 }
