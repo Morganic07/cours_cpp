@@ -21,7 +21,7 @@ class Point{
         int getX();
         int getY();
 
-        void affiche();
+        void afficherPoint();
         
 };
 

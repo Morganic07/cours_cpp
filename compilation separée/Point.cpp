@@ -32,6 +32,6 @@ void Point::set(int a, int b){
     y = b;
 }
 
-void Point::affiche(){
+void Point::afficherPoint(){
     std::cout << x << ";" << y << std::endl;
 }   
