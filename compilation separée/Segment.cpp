@@ -38,5 +38,5 @@ float Segment::getLongueur(){
 void Segment::afficherSegment(){
     A.afficherPoint();
     B.afficherPoint();
-    std::cout << getLongueur() << std::endl; 
+    std::cout << "longueur : " << getLongueur() << std::endl; 
 }
