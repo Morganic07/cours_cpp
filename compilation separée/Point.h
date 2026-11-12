@@ -1,5 +1,5 @@
 #ifndef POINT_H // ou #pragma once
-#define POINT_h
+#define POINT_H
 
 //juste on déclare tout, on décrit pas le détail des fonctions, constructeurs et tout. 
 

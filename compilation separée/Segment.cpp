@@ -10,8 +10,9 @@ Segment::Segment(){
 }
 
 Segment::Segment(Point p1, Point p2){
-    p1.set(p1.getX(), p1.getY());
-    p2.set(p2.getX(), p2.getY());
+    A = p1;
+    B = p2;
+    longueur = getLongueur();
 }
 
 Segment::Segment(const Segment& autreSegment){
@@ -37,5 +38,5 @@ float Segment::getLongueur(){
 void Segment::afficherSegment(){
     A.afficherPoint();
     B.afficherPoint();
-    std::cout << getLongueur << std::endl; 
+    std::cout << getLongueur() << std::endl; 
 }
