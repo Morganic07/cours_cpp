@@ -20,7 +20,7 @@ public:
     
     // Fonction d'affichage simple (demandée par le prof)
     void affichePoint(){
-        std::cout << "(" << x << ", " << y << ")";
+        std::cout << "(" << x << ", " << y << ")" << std::endl;
     }
 };
 
@@ -71,7 +71,7 @@ public:
     void afficheSegment(){
         A.affichePoint();
         B.affichePoint();
-        std::cout << " | " << calculerLongueur() << std::endl;
+        std::cout << calculerLongueur() << std::endl;
     }
 
     //calculer la longueur d'un segment
